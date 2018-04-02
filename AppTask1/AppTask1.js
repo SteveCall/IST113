@@ -17,19 +17,8 @@ function runApp() {
     newButton.addEventListener("click", function() {
       newElem.parentNode.removeChild(newElem);
     });
-
     newElem.appendChild(newContent);
     newElem.appendChild(newButton);
-
     taskList.appendChild(newElem);
-
-
-
-
-
-
   });
 }
-
-
-runApp();
