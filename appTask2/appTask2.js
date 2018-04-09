@@ -1,59 +1,16 @@
 
-function testDom() {
 
-  
-  $("#buttonElement").on("click", function() {
-    let contentValue = $("#inputContent").val();
-	addTask(contentValue)
-	inputContent.on( "click", ".delete-button", function(){
-  $(this).parent().remove();
-	})
-  });
-  
- 
-  $("#deletebutton").on("click", function() {
-    
-    let $lastItem = $("#listOne li").remove();
-    
-  });
- 
+function newTaskString(s) {
+	return "<fieldset class='inputfs'><label>" + s + "</label><button class='removeButton'>Remove</button></fieldset>";
 }
 
-//var this = testThis ? yessothis : thisbecausefalse
+function removeFunction() {
+	$(this).parent().remove();
+}
 
-testDom();
-var listItems = [];
-
-if (localStorage.getItem("task") !== null) {
-	let myItemString = localStorage.getItem("task")
-	listItems = JSON.parse(myItemString)
-	$(listItems).each(function() {
-		addTask(this);
+$(function() {
+	$("#taskAdd").on("click", function() {
+		let taskName = $("#taskInput").val();
+		$("#list").append(newTaskString(taskName)).on("click", "button", removeFunction);
 	});
-}
-else{
-	listItems = []
-}
-
-//this.parentElement.remove()
-var taskID = 0
-
-function addTask(content) {
-	listItems[taskID] = content;
-	let taskElement = $("<li></li>").text(content);
-	taskElement.data("task",taskID) 
-	let checkBox = $("<input type='checkbox' />").appendTo(taskElement);
-	checkBox.click(function(){
-		$("input:checked").parent().remove()	
-		listItems.splice($(this).parent().data("task"),1)
-		localStorage.setItem("task", JSON.stringify(listItems))
-	})
-	
-    $("#listOne").append(taskElement);
-	console.log(listItems)
-	taskID++
-	localStorage.setItem("task", JSON.stringify(listItems))
-	//var jsonstring = json.stringify(array)
-	//save the string in the local storage
-	
-}
+});
