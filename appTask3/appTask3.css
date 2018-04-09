@@ -4,10 +4,10 @@
   border: 0px;
 }
 
-#appMainWindow {
+#TaskManagerWindow {
     width: 45%;
-    background-color: purple;
-    margin-top: 25%;
+    background-color: grey;
+    margin-top: -15%;
     margin-left: 25%;
     border-radius: 15px;
 }
@@ -22,16 +22,17 @@
 }
 
 #buttonAddTask {
-  margin-left: 5%;
+  margin-right: 15%;
 }
 
 #buttonDeleteAll {
-  margin-left: 5%
+  margin-right: 15%
 }
 
 #taskDescription {
      width: 50%;
      margin-left: 25%;
+     font-size: 16px;
 }
 
 fieldset {
@@ -52,5 +53,5 @@ li {
 }
 
 label {
-  font-family: "Sans-serif";
+  font-family: monospace;
 }
