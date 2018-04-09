@@ -1,31 +1,19 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-	<title>Task Manager</title>
-	<link href="appTask1.css" rel="StyleSheet" />
+	<title>App Task 2</title>
+	<link href="appTask2.css" rel="StyleSheet" />
 </head>
 <body>
 	<div id="page">
-		<h1 id="innerTitle">Task Manager</h1>
-		<fieldset>
-			<label>Task Manager</label>
-			<input id="inputField" name="inputField" type="text" />
-			<br></br>
-			<button id="buttonCreate">Add task to list</button>
-			<button id="buttonDelete">Remove Last Item</button>
-
+		<fieldset class="inputfs">
+		<label class = "inputLabel">Add Task: </label>
+			<input class = "inputTextfield" id="taskInput" type = "text"/>
+			<button class = "inputButton" id="taskAdd">Add</button>
 		</fieldset>
-
-		<h3>Task List:</h3>
-		<ul id="listOne" class="red">
-		</ul>
-
+		<ul id="list"></ul>
   	</div>
-
-		<script
-		src="https://code.jquery.com/jquery-3.3.1.js"
-		integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-		crossorigin="anonymous"></script>
-		<script src="appTask1.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="appTask2.js"></script>
 </body>
 </html>
