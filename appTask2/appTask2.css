@@ -1,10 +1,10 @@
 
 * {
-	background-color: #DDDDDD;
+	background-color: #EEEEEE;
 }
 
 .inputfs {
-	width: 400px;
+	width: 200px;
 	margin: 5px auto;
 }
 
@@ -13,11 +13,11 @@
 }
 
 .inputTextfield {
-	width: 70%;
+	width: 80%;
 }
 
 .inputButton {
-	width: 10%;
+	width: 15%;
 }
 
 .removeButton {
