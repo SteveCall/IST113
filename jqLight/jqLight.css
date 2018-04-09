@@ -1,20 +1,29 @@
-* {
-    margin: 0;
-    padding: 0;
+.lightswitch {
+	float: right;
+	background-color: green;
+	height: 400px;
+	width: 100px;
+	z-index: 2;
+	border: 2px solid gray;
+	overflow: hidden;
 }
-#page {
-    height: 45vh;
+
+.background {
+	width: 200px;
+	height: 400px;
+	background-color: #F0F0F0;
+	margin: auto;
+	margin-top: 300px;
+	border: 2px solid gray;
 }
-#button {
-    height: 10vh;
-    width: 200px;
-    margin: 0 auto;
-    background-color: darkgray;
+
+button {
+	width: 100px;
+	height: 40px;
+	margin: auto;
+	margin-top: 180px;
 }
-#switch {
-    width:40px;
-    height:10vh;
-    background-color: lightgray;
-    float:left;
-    text-align: center;
+
+.body {
+	background-color: black;
 }
