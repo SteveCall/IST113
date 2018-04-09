@@ -1,20 +1,23 @@
-$(function () {
-    lightFunction();
+var switchOff = true;
+
+$(function() {
+			myClickFunction();
 });
 
-function lightFunction(){
-    var lightOn = true;
-    $("#button").on("click", function () {
-        lightOn = !lightOn;
-        if (lightOn) {
-            $("#switch").text("On");
-            $("#switch").css({"float": "left"});
-            $("body").css({"background-color": "white"});
-        }
-        else {
-            $("#switch").text("Off");
-            $("#switch").css({"float": "right"});
-            $("body").css({"background-color": "black"});
-        }
-    });
+function myClickFunction() {
+	$("#button").on("click", function() {
+		switchOff = !switchOff;
+		if (switchOff) {
+			$("body").css("background-color", "black");
+			$("body").css("color", "white");
+			$("#lightswitch").css("float", "right");
+			$("#button").text("Off");
+		}
+		else {
+			$("#body").css("background-color", "white");
+			$("#body").css("color", "black");
+			$("#lightswitch").css("float", "left");
+			$("#button").text("On");
+		}
+	});
 }
