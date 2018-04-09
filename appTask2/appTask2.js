@@ -1,57 +1,59 @@
-var buttontask = $("#buttontask");
-var task = $("#task");
-var list1 = $("#list1");
-var Delete = $("#delete");
-var Delete1 = $("#delete1");
 
-buttontask.on('click', function () {
-  var newE = $('<li></li>');
-  var textnode = $("#task").val();
-  var buttondelete = $('<div>X</div>');
+function testDom() {
 
-  Delete.append(buttondelete);
-  newE.append(textnode);
-
-  newE.on('click', function() {
-    this.remove();
+  
+  $("#buttonElement").on("click", function() {
+    let contentValue = $("#inputContent").val();
+	addTask(contentValue)
+	inputContent.on( "click", ".delete-button", function(){
+  $(this).parent().remove();
+	})
   });
-
-  buttondelete.on('click', function(){
-    this.remove();
-    newE.remove();
+  
+ 
+  $("#deletebutton").on("click", function() {
+    
+    let $lastItem = $("#listOne li").remove();
+    
   });
+ 
+}
 
-  newE.addClass(task.value);
-  list1.append(newE);
+//var this = testThis ? yessothis : thisbecausefalse
 
-  buttondelete.addClass('delete');
-});
+testDom();
+var listItems = [];
 
+if (localStorage.getItem("task") !== null) {
+	let myItemString = localStorage.getItem("task")
+	listItems = JSON.parse(myItemString)
+	$(listItems).each(function() {
+		addTask(this);
+	});
+}
+else{
+	listItems = []
+}
 
+//this.parentElement.remove()
+var taskID = 0
 
-var buttondesc = $("#buttondesc");
-var list2 = $("#list2");
-var desc = $("#desc");
-
-buttondesc.on('click', function () {
-  var newElem = $('<li></li>');
-  var textnode1 = $("#desc").val();
-  var buttondelete1 = $('<div>X</div>');
-
-  Delete1.append(buttondelete1);
-  newElem.append(textnode1);
-
-  buttondelete1.on('click', function(){
-    this.remove();
-    newElem.remove();
-  });
-
-  newElem.on('click', function() {
-    this.remove();
-  });
-
-  newElem.addClass(desc.value);
-  list2.append(newElem);
-
-  buttondelete1.addClass('delete1');
-});
+function addTask(content) {
+	listItems[taskID] = content;
+	let taskElement = $("<li></li>").text(content);
+	taskElement.data("task",taskID) 
+	let checkBox = $("<input type='checkbox' />").appendTo(taskElement);
+	checkBox.click(function(){
+		$("input:checked").parent().remove()	
+		listItems.splice($(this).parent().data("task"),1)
+		localStorage.setItem("task", JSON.stringify(listItems))
+	})
+	
+    $("#listOne").append(taskElement);
+	console.log(listItems)
+	taskID++
+	localStorage.setItem("task", JSON.stringify(listItems))
+	//var jsonstring = json.stringify(array)
+	//save the string in the local storage
+	
+}
